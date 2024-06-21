@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Apartments</title>
+</head>
+<body>
+    <h1>Welcome to Gift Apartments</h1>
+    
+        {% for apartment in apartments %}
+        <h2>{{ apartment.name }} - {{apartment.address }}</h2>
+        <h3>Packed with {{ apartment.number_of_houses }} spacious houses</h3>
+        {% endfor %}
+    
+</body>
+</html>
