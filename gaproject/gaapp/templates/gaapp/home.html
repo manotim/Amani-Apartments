@@ -4,8 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gift Apartments</title>
+    <style>
+        nav {
+            display: flex;
+            text-align: center;
+            justify-content: space-between;
+            background-color: blue;
+            color: azure;
+        }
+        .nav {
+            background-color: brown;
+            width: 80%;
+            text-align: center;
+        }
+
+        .nav > ul {
+            display: flex;
+            /* margin: 24px; */
+        }
+
+        .nav > ul > li {
+            /* text-decoration: none; */
+            list-style: none;
+            margin: 32px;
+        }
+
+        .nav > ul > a {
+            margin: 32px;
+        }
+
+        .nav > ul > li a {
+            color: azure;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
+    <nav>
+        <h1>Gift Apartments</h1>
+        <div class="nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Find House</a></li>
+                <a href="#"><button>Login</button></a>
+                <a href="#"><button>Register</button></a>
+            </ul>
+            
+        </div>
+        
+        
+    </nav>
     <h1>Welcome to Gift Apartments</h1>
     
         {% for apartment in apartments %}
