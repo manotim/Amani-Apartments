@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,13 +11,13 @@
             display: flex;
             text-align: center;
             justify-content: space-between;
-            background-color: blue;
+            /* background-color: blue; */
             color: azure;
         }
         .nav {
-            background-color: brown;
-            width: 80%;
-            text-align: center;
+            background-color: #C1BCC2;
+            width: 100%;
+            /* text-align: center; */
         }
 
         .nav > ul {
@@ -34,14 +36,23 @@
         }
 
         .nav > ul > li a {
-            color: azure;
+            color: #2217bb;
             text-decoration: none;
+            font-weight: 500;
+            font-size: 18px;
+        }
+
+        .home-logo > img {
+            width: 120px;
+            height: 120px;
         }
     </style>
 </head>
 <body>
     <nav>
-        <h1>Gift Apartments</h1>
+        <div class="home-logo">
+            <img src="{% static 'images/GA_Logo-new.png' %}" alt="Logo">
+        </div>
         <div class="nav">
             <ul>
                 <li><a href="#">Home</a></li>
