@@ -1,12 +1,95 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landlord Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            align-items: start;
+        }
+
+        .rectangle {
+            background-color: cyan;
+            padding: 20px;
+            box-sizing: border-box;
+            border: 1px solid #000;
+            border-radius: 8px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <h1>Landlord Dashboard</h1>
     <p>Only accessible to landlords.</p>
+    
+    <div class="grid-container">
+        <section>
+            <h2>Ground Floor Houses</h2>
+            <div class="rectangle">
+                {% for house in houses|slice:":2" %}
+                <h3>House: {{ house.name }}</h3>
+                <h4>House Size: {{ house.house_type }}</h4>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section>
+            <h2>1ST Floor Houses</h2>
+            <div class="rectangle">
+                {% for house in houses|slice:"2:5" %}
+                <h3>House: {{ house.name }}</h3>
+                <h4>House Size: {{ house.house_type }}</h4>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section>
+            <h2>2ND Floor Houses</h2>
+            <div class="rectangle">
+                {% for house in houses|slice:"5:8" %}
+                <h3>House: {{ house.name }}</h3>
+                <h4>House Size: {{ house.house_type }}</h4>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section>
+            <h2>3RD Floor Houses</h2>
+            <div class="rectangle">
+                {% for house in houses|slice:"8:11" %}
+                <h3>House: {{ house.name }}</h3>
+                <h4>House Size: {{ house.house_type }}</h4>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section>
+            <h2>4TH Floor Houses</h2>
+            <div class="rectangle">
+                {% for house in houses|slice:"11:14" %}
+                <h3>House: {{ house.name }}</h3>
+                <h4>House Size: {{ house.house_type }}</h4>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+    
 </body>
 </html>

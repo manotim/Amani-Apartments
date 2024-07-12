@@ -25,7 +25,7 @@ class Apartment(models.Model):
 # House model
 class House(models.Model):
     name = models.CharField(max_length=100)
-    house_type = models.CharField(max_length=10, null=True, blank=True)
+    house_type = models.CharField(max_length=100, null=True, blank=True)
     is_available = models.BooleanField(default=True)
     apartment = models.ForeignKey(Apartment, on_delete=models.CASCADE, related_name='houses')
 

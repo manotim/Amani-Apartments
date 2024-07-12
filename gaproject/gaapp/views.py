@@ -11,7 +11,8 @@ def home(request):
 @role_required('landlord')
 def landlord_view(request):
     # Landlord-specific view logic
-    return render(request, 'gaapp/landlord.html')
+    houses = House.objects.all()
+    return render(request, 'gaapp/landlord.html', {'houses': houses})
 
 
 @role_required('tenant')
