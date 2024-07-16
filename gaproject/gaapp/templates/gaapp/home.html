@@ -19,7 +19,27 @@
             background-color: #C1BCC2;
             width: 100%;
             /* text-align: center; */
+            height: 45px;
         }
+
+        /* .rooms-container {
+          display: flex;
+        } */
+        .rooms-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0; /* Adjust the gap as needed */
+      padding: 10px; /* Optional: add padding to the container */
+    }
+    .card {
+      width: 100%; /* Make sure the card takes up the full width of the grid cell */
+      border: 2px solid red;
+    }
+
+    .card-img-top {
+      width: 27.7rem;
+      height: 16rem;
+    }
 
         .nav > ul {
             display: flex;
@@ -44,13 +64,13 @@
         }
 
         .home-logo > img {
-            width: 120px;
-            height: 120px;
+            width: 80px;
+            height: 80px;
         }
     </style>
 </head>
 <body>
-    <nav>
+    <!-- <nav>
         <div class="home-logo">
             <img src="{% static 'images/GA_Logo-new.png' %}" alt="Logo">
         </div>
@@ -65,60 +85,173 @@
             </ul>
             
         </div>
-        
-        
+    </nav> -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">GiftAppartments</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success btn-info" type="submit">Login</button>
+            <button class="btn btn-outline-success btn-info" type="submit">Register</button>
+          </form>
+        </div>
+      </div>
     </nav>
-    <section>
-        <img src="" alt="">
-    </section>
-    <section>
-        <!-- Hero 3 - Bootstrap Brain Component -->
-<!-- Hero 5 - Bootstrap Brain Component -->
-<section class="bsb-hero-5 px-3 bsb-overlay" style="background-image: url('./assets/img/hero-img-1.webp');">
-    <div class="container">
-      <div class="row justify-content-md-center align-items-center">
-        <div class="col-12 col-md-11 col-lg-9 col-xl-8 col-xxl-7">
-          <h2 class="display-1 text-white text-center fw-bold mb-4">Dream of Success</h2>
-          <p class="lead text-white text-center mb-5 d-flex justify-content-sm-center">
-            <span class="col-12 col-sm-10 col-md-8 col-xxl-7">There are three ways to ultimate success: The first way is to be kind. The second way is to be kind. The third way is to be kind.</span>
-          </p>
-          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <button type="button" class="btn bsb-btn-2xl btn-outline-light">Free Consultation</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    
 <!-- Hero 3 - Bootstrap Brain Component -->
-<section class="py-3 py-lg-5 py-xl-8">
-    <div class="container overflow-hidden">
-      <div class="row gy-5 gy-lg-0 align-items-lg-center justify-content-lg-between">
-        <div class="col-12 col-lg-6 order-1 order-lg-0">
-          <h2 class="display-3 fw-bold mb-3">A Digital Agency Specialized in AI and Web 3.0</h2>
-          <p class="fs-4 mb-5">We work in a customized way by devising and handling entirely online projects with long-term partnerships.</p>
-          <div class="d-grid gap-2 d-sm-flex">
-            <button type="button" class="btn btn-primary bsb-btn-2xl rounded-pill">Explore Now</button>
-            <button type="button" class="btn btn-outline-primary bsb-btn-2xl rounded-pill">Free Trial</button>
-          </div>
-        </div>
-        <div class="col-12 col-lg-5 text-center">
-          <div class="position-relative">
-            <div class="bsb-circle border border-4 border-warning position-absolute top-50 start-10 translate-middle z-1"></div>
-            <div class="bsb-circle bg-primary position-absolute top-50 start-50 translate-middle" style="--bsb-cs: 460px;"></div>
-            <div class="bsb-circle border border-4 border-warning position-absolute top-10 end-0 z-1" style="--bsb-cs: 100px;"></div>
-            <img class="img-fluid position-relative z-2" loading="lazy" src="{% static 'images/gift_apartments_hero-new.png' %}" alt="A Digital Agency Specialized in AI and Web 3.0">
-          </div>
-        </div>
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'images/home1.jpg' %}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
       </div>
     </div>
-  </section>  
-    </section>
+    <div class="carousel-item">
+      <img src="{% static 'images/home2.jpg' %}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/home3.jpg' %}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<section class="rooms-container">
+  <div class="card" style="width: 28rem;">
+    <img src="{% static 'images/rooms/room1.jpg' %}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">House 1</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">View Rooms</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 28rem;">
+    <img src="{% static 'images/rooms/room2.jpg' %}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">House 2</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">View Rooms</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 28rem;">
+    <img src="{% static 'images/rooms/room3.jpg' %}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">House 3</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">View Rooms</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 28rem;">
+    <img src="{% static 'images/rooms/room4.jpeg' %}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">House 4</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">View Rooms</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 28rem;">
+    <img src="{% static 'images/rooms/room5.jpg' %}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">House 5</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">View Rooms</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 28rem;">
+    <img src="{% static 'images/rooms/room6.jpg' %}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">House 6</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">View Room</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 28rem;">
+    <img src="{% static 'images/rooms/room7.jpg' %}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">House 7</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">View Room</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 28rem;">
+    <img src="{% static 'images/rooms/room8.jpg' %}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">House 8</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">View Rooms</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 28rem;">
+    <img src="{% static 'images/rooms/room9.jpg' %}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">House 9</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">View Rooms</a>
+    </div>
+  </div>
+</section>
+
     <h1>Welcome to Gift Apartments</h1>
     
         {% for apartment in apartments %}
         <h2>{{ apartment.name }} - {{apartment.address }}</h2>
         <h3>Packed with {{ apartment.number_of_houses }} spacious houses</h3>
         {% endfor %}
-    
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
