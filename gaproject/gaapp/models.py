@@ -1,8 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, Group, Permission
-# Create your models here.
 
-# User model with roles
 class User(AbstractUser):
     ROLE_CHOICES = [
         ('landlord', 'Landlord'),
@@ -12,6 +10,7 @@ class User(AbstractUser):
     role = models.CharField(max_length=10, choices=ROLE_CHOICES)
     groups = models.ManyToManyField(Group, related_name='gaapp_user_set', blank=True)
     user_permissions = models.ManyToManyField(Permission, related_name='gaapp_user_permissions_set', blank=True)
+
 
 # Apartment model
 class Apartment(models.Model):
