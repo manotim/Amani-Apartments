@@ -6,8 +6,8 @@ User = get_user_model()
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
-    role = forms.ChoiceField(choices=User.ROLE_CHOICES)
+    # role = forms.ChoiceField(choices=User.ROLE_CHOICES)
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1', 'password2', 'role']
+        fields = ['username', 'email', 'password1', 'password2']
