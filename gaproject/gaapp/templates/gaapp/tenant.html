@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+{% extends "gaapp/base.html" %}
+{% load static %}
+{% block innercontent %}
+{% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +10,68 @@
 </head>
 <body>
     <h1>Tenant Dashboard</h1>
+    <h2>Welcome, {{ tenant_username }}!</h2>
     <p>Only accessible to tenants.</p>
 </body>
-</html>
+</html> {% endcomment %}
+
+<section id="content" style="background-color: green;">
+    <div id="header">
+        <div class="header-nav">
+            <div class="menu-button"><!--<i class="fa fa-navicon"></i>--></div>
+            <div class="nav">
+                <ul>
+                    <li class="nav-settings">
+                        <div class="font-icon"><i class="fa fa-tasks"></i></div>
+                    </li>
+                    <li class="nav-mail">
+                        <div class="font-icon">
+                            <i class="fa-regular fa-envelope"></i>
+                        </div>
+                    </li>
+                    <li class="nav-calendar">
+                        <div class="font-icon">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                    </li>
+                    <li class="nav-chat">
+                        <div class="font-icon">
+                            <i class="fa-regular fa-comment"></i>
+                        </div>
+                    </li>
+                    <li class="nav-profile">
+                        <div class="nav-profile-image">
+                            <img
+                                src="{% static 'images/profile-avatar.png' %}"
+                                alt="profile-img"
+                                alt="profile image"
+                            />
+                            <div class="nav-profile-name">
+                                Jane Smith<i class="fa fa-caret-down"></i>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="content-header">
+            <h1>Dashboard</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="widget-box sample-widget">
+            1
+        </div>
+        <div class="widget-box sample-widget">
+            2
+        </div>
+        <div class="widget-box sample-widget">
+            3
+        </div>
+        <div class="widget-box sample-widget">
+            4
+        </div>
+    </div>
+</section>
+{% endblock innercontent %}

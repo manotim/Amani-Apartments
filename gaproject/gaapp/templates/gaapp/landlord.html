@@ -1,190 +1,95 @@
+{% extends "gaapp/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landlord Dashboard</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-
-        h1 {
-            text-align: center;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            align-items: start;
-        }
-
-        .rectangle {
-            background-color: cyan;
-            padding: 20px;
-            box-sizing: border-box;
-            border: 1px solid #000;
-            border-radius: 8px;
-        }
-
-        h2 {
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-    <h1>Landlord Dashboard</h1>
-    <p>Only accessible to landlords.</p>
-    
-    <div class="grid-container">
-        <section>
-            <h2>Ground Floor Houses</h2>
-            <div class="rectangle">
-                {% for house in houses|slice:":2" %}
-                <h3>House: {{ house.name }}</h3>
-                <h4>House Size: {{ house.house_type }}</h4>
-                <div>
-                    <h3>Items CheckList</h3>
-                    <ul>
-                        {% if forloop.counter0 == 0 %}
-                            {% for item in items_for_house_1 %}
-                            <li>{{ item.name }} - Quantity: {{ item.quantity }}</li>
-                            {% endfor %}
-                        {% elif forloop.counter0 == 1 %}
-                            {% for item in items_for_house_2 %}
-                            <li>{{ item.name }} - Quantity: {{ item.quantity }}</li>
-                            {% endfor %}
-                        {% endif %}
-                    </ul>
-                </div>
-                <hr>
-                {% endfor %}
-                
+{% block innercontent %}
+<section id="content">
+    <div id="header">
+        <div class="header-nav">
+            <div class="menu-button"><!--<i class="fa fa-navicon"></i>--></div>
+            <div class="nav">
+                <ul>
+                    <li class="nav-settings">
+                        <div class="font-icon"><i class="fa fa-tasks"></i></div>
+                    </li>
+                    <li class="nav-mail">
+                        <div class="font-icon">
+                            <i class="fa-regular fa-envelope"></i>
+                        </div>
+                    </li>
+                    <li class="nav-calendar">
+                        <div class="font-icon">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                    </li>
+                    <li class="nav-chat">
+                        <div class="font-icon">
+                            <i class="fa-regular fa-comment"></i>
+                        </div>
+                    </li>
+                    <li class="nav-profile">
+                        <div class="nav-profile-image">
+                            <img
+                                src="{% static 'images/profile-avatar.png' %}"
+                                alt="profile-img"
+                                alt="profile image"
+                            />
+                            <div class="nav-profile-name">
+                                Jane Smith<i class="fa fa-caret-down"></i>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
-        </section>
-
-        <section>
-            <h2>1ST Floor Houses</h2>
-            <div class="rectangle">
-                {% for house in houses|slice:"2:5" %}
-                <h3>House: {{ house.name }}</h3>
-                <h4>House Size: {{ house.house_type }}</h4>
-                <div>
-                    <h3>Items CheckList</h3>
-                    <ul>
-                        {% if forloop.counter0 == 0 %}
-                            {% for item in items_for_house_3 %}
-                            <li>{{ item.name }} - Quantity: {{ item.quantity }}</li>
-                            {% endfor %}
-                        {% elif forloop.counter0 == 1 %}
-                            {% for item in items_for_house_4 %}
-                            <li>{{ item.name }} - Quantity: {{ item.quantity }}</li>
-                            {% endfor %}
-                        {% elif forloop.counter0 == 2 %}
-                            {% for item in items_for_house_5 %}
-                            <li>{{ item.name }} - Quantity: {{ item.quantity }}</li>
-                            {% endfor %}
-                        {% endif %}
-                        
-                    </ul>
-                </div>
-                <hr>
-                {% endfor %}
-                
-            </div>
-        </section>
-
-        <section>
-            <h2>2ND Floor Houses</h2>
-            <div class="rectangle">
-                {% for house in houses|slice:"5:8" %}
-                <h3>House: {{ house.name }}</h3>
-                <h4>House Size: {{ house.house_type }}</h4><div>
-                    <h3>Items CheckList</h3>
-                    <ul>
-                        {% if forloop.counter0 == 0 %}
-                            {% for item in items_for_house_6 %}
-                            <li>{{ item.name }} - Quantity: {{ item.quantity }}</li>
-                            {% endfor %}
-                        {% elif forloop.counter0 == 1 %}
-                            {% for item in items_for_house_7 %}
-                            <li>{{ item.name }} - Quantity: {{ item.quantity }}</li>
-                            {% endfor %}
-                        {% elif forloop.counter0 == 2 %}
-                            {% for item in items_for_house_8 %}
-                            <li>{{ item.name }} - Quantity: {{ item.quantity }}</li>
-                            {% endfor %}
-                        {% endif %}
-                        
-                    </ul>
-                </div>
-                <hr>
-                {% endfor %}
-            </div>
-        </section>
-
-        <section>
-            <h2>3RD Floor Houses</h2>
-            <div class="rectangle">
-                {% for house in houses|slice:"8:11" %}
-                <h3>House: {{ house.name }}</h3>
-                <h4>House Size: {{ house.house_type }}</h4>
-                <div>
-                    <h3>Items CheckList</h3>
-                    <ul>
-                        {% if forloop.counter0 == 0 %}
-                            {% for item in items_for_house_9 %}
-                            <li>{{ item.name }} - Quantity: {{ item.quantity }}</li>
-                            {% endfor %}
-                        {% elif forloop.counter0 == 1 %}
-                            {% for item in items_for_house_10 %}
-                            <li>{{ item.name }} - Quantity: {{ item.quantity }}</li>
-                            {% endfor %}
-                        {% elif forloop.counter0 == 2 %}
-                            {% for item in items_for_house_11 %}
-                            <li>{{ item.name }} - Quantity: {{ item.quantity }}</li>
-                            {% endfor %}
-                        {% endif %}
-                        
-                    </ul>
-                </div>
-                <hr>
-                {% endfor %}
-            </div>
-        </section>
-
-        <section>
-            <h2>4TH Floor Houses</h2>
-            <div class="rectangle">
-                {% for house in houses|slice:"11:14" %}
-                <h3>House: {{ house.name }}</h3>
-                <h4>House Size: {{ house.house_type }}</h4><div>
-                    <h3>Items CheckList</h3>
-                    <ul>
-                        {% if forloop.counter0 == 0 %}
-                            {% for item in items_for_house_12 %}
-                            <li>{{ item.name }} - Quantity: {{ item.quantity }}</li>
-                            {% endfor %}
-                        {% elif forloop.counter0 == 1 %}
-                            {% for item in items_for_house_13 %}
-                            <li>{{ item.name }} - Quantity: {{ item.quantity }}</li>
-                            {% endfor %}
-                        {% elif forloop.counter0 == 2 %}
-                            {% for item in items_for_house_14 %}
-                            <li>{{ item.name }} - Quantity: {{ item.quantity }}</li>
-                            {% endfor %}
-                        {% endif %}
-                        
-                    </ul>
-                </div>
-                <hr>
-                {% endfor %}
-            </div>
-        </section>
+        </div>
     </div>
-    
-</body>
-</html>
+    <div class="content">
+        <div class="content-header">
+            <h1>Dashboard</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="widget-box sample-widget">
+            <div class="widget-header">
+                <h2>Widget Header</h2>
+                <i class="fa fa-cog"></i>
+            </div>
+            <div class="widget-content">
+                <img
+                    src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/87118/sample-data-1.png"
+                />
+            </div>
+        </div>
+        <div class="widget-box sample-widget">
+            <div class="widget-header">
+                <h2>Widget Header</h2>
+                <i class="fa fa-cog"></i>
+            </div>
+            <div class="widget-content">
+                <img
+                    src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/87118/sample-data-1.png"
+                />
+            </div>
+        </div>
+        <div class="widget-box sample-widget">
+            <div class="widget-header">
+                <h2>Widget Header</h2>
+                <i class="fa fa-cog"></i>
+            </div>
+            <div class="widget-content">
+                <img
+                    src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/87118/sample-data-1.png"
+                />
+            </div>
+        </div>
+        <div class="widget-box sample-widget">
+            <div class="widget-header">
+                <h2>Widget Header</h2>
+                <i class="fa fa-cog"></i>
+            </div>
+            <div class="widget-content">
+                <img
+                    src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/87118/sample-data-1.png"
+                />
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock innercontent %}

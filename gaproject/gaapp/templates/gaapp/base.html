@@ -1,0 +1,194 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landlord Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'gaapp/style.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    {% comment %} <h1>Landlord Dashboard</h1>
+    <h2>Welcome, {{ landlord_username }}!</h2>
+    <p>Only accessible to landlords.</p> {% endcomment %}
+
+    <section class="user-sidedar" id="sidebar">
+        <div class="white-label">
+        </div>
+        <div id="sidebar-nav">
+        <ul>
+        <li class="active"><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li><a href="#"><i class="fa fa-desktop"></i> My Website</a></li>
+        <li><a href="#"><i class="fa fa-usd"></i> Ecommerce</a></li>
+        <li><a href="#"><i class="fa fa-pencil-square-o"></i> My Blog</a></li>
+        <li><a href="#"><i class="fa fa-sitemap"></i> SEO Tools</a></li>
+        <li><a href="#"><i class="fa fa-line-chart"></i> Reporting</a></li>
+        <li><a href="#"><i class="fa fa-comments-o"></i>Social Marketing</a></li>
+        <li><a href="#"><i class="fa fa-map-marker"></i> Get Traffic</a></li>
+        <li><a href="#"><i class="fa fa-users"></i> Employees</a></li>
+        <li><a href="#"><i class="fa fa-calendar-o"></i> Reservations</a></li>
+        <li><a href="#"><i class="fa fa-calendar"></i> Calendar</a></li>
+        </ul>
+        </div>
+        </section>
+
+        {% block innercontent %} {% endblock innercontent %}
+
+    
+    {% comment %} <div class="grid-container">
+        <section>
+            <h2>Ground Floor Houses</h2>
+            <div class="rectangle">
+                {% for house in houses|slice:":2" %}
+                <h3>House: {{ house.name }}</h3>
+                <h4>House Size: {{ house.house_type }}</h4>
+                <div>
+                    <h3>Items CheckList</h3>
+                    <ul>
+                        {% if forloop.counter0 == 0 %}
+                            {% for item in items_for_house_1 %}
+                            <li>{{ item.name }} - Quantity: {{ item.quantity }}</li>
+                            {% endfor %}
+                        {% elif forloop.counter0 == 1 %}
+                            {% for item in items_for_house_2 %}
+                            <li>{{ item.name }} - Quantity: {{ item.quantity }}</li>
+                            {% endfor %}
+                        {% endif %}
+                    </ul>
+                </div>
+                <hr>
+                {% endfor %}
+                
+            </div>
+        </section>
+
+        <section>
+            <h2>1ST Floor Houses</h2>
+            <div class="rectangle">
+                {% for house in houses|slice:"2:5" %}
+                <h3>House: {{ house.name }}</h3>
+                <h4>House Size: {{ house.house_type }}</h4>
+                <div>
+                    <h3>Items CheckList</h3>
+                    <ul>
+                        {% if forloop.counter0 == 0 %}
+                            {% for item in items_for_house_3 %}
+                            <li>{{ item.name }} - Quantity: {{ item.quantity }}</li>
+                            {% endfor %}
+                        {% elif forloop.counter0 == 1 %}
+                            {% for item in items_for_house_4 %}
+                            <li>{{ item.name }} - Quantity: {{ item.quantity }}</li>
+                            {% endfor %}
+                        {% elif forloop.counter0 == 2 %}
+                            {% for item in items_for_house_5 %}
+                            <li>{{ item.name }} - Quantity: {{ item.quantity }}</li>
+                            {% endfor %}
+                        {% endif %}
+                        
+                    </ul>
+                </div>
+                <hr>
+                {% endfor %}
+                
+            </div>
+        </section>
+
+        <section>
+            <h2>2ND Floor Houses</h2>
+            <div class="rectangle">
+                {% for house in houses|slice:"5:8" %}
+                <h3>House: {{ house.name }}</h3>
+                <h4>House Size: {{ house.house_type }}</h4><div>
+                    <h3>Items CheckList</h3>
+                    <ul>
+                        {% if forloop.counter0 == 0 %}
+                            {% for item in items_for_house_6 %}
+                            <li>{{ item.name }} - Quantity: {{ item.quantity }}</li>
+                            {% endfor %}
+                        {% elif forloop.counter0 == 1 %}
+                            {% for item in items_for_house_7 %}
+                            <li>{{ item.name }} - Quantity: {{ item.quantity }}</li>
+                            {% endfor %}
+                        {% elif forloop.counter0 == 2 %}
+                            {% for item in items_for_house_8 %}
+                            <li>{{ item.name }} - Quantity: {{ item.quantity }}</li>
+                            {% endfor %}
+                        {% endif %}
+                        
+                    </ul>
+                </div>
+                <hr>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section>
+            <h2>3RD Floor Houses</h2>
+            <div class="rectangle">
+                {% for house in houses|slice:"8:11" %}
+                <h3>House: {{ house.name }}</h3>
+                <h4>House Size: {{ house.house_type }}</h4>
+                <div>
+                    <h3>Items CheckList</h3>
+                    <ul>
+                        {% if forloop.counter0 == 0 %}
+                            {% for item in items_for_house_9 %}
+                            <li>{{ item.name }} - Quantity: {{ item.quantity }}</li>
+                            {% endfor %}
+                        {% elif forloop.counter0 == 1 %}
+                            {% for item in items_for_house_10 %}
+                            <li>{{ item.name }} - Quantity: {{ item.quantity }}</li>
+                            {% endfor %}
+                        {% elif forloop.counter0 == 2 %}
+                            {% for item in items_for_house_11 %}
+                            <li>{{ item.name }} - Quantity: {{ item.quantity }}</li>
+                            {% endfor %}
+                        {% endif %}
+                        
+                    </ul>
+                </div>
+                <hr>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section>
+            <h2>4TH Floor Houses</h2>
+            <div class="rectangle">
+                {% for house in houses|slice:"11:14" %}
+                <h3>House: {{ house.name }}</h3>
+                <h4>House Size: {{ house.house_type }}</h4><div>
+                    <h3>Items CheckList</h3>
+                    <ul>
+                        {% if forloop.counter0 == 0 %}
+                            {% for item in items_for_house_12 %}
+                            <li>{{ item.name }} - Quantity: {{ item.quantity }}</li>
+                            {% endfor %}
+                        {% elif forloop.counter0 == 1 %}
+                            {% for item in items_for_house_13 %}
+                            <li>{{ item.name }} - Quantity: {{ item.quantity }}</li>
+                            {% endfor %}
+                        {% elif forloop.counter0 == 2 %}
+                            {% for item in items_for_house_14 %}
+                            <li>{{ item.name }} - Quantity: {{ item.quantity }}</li>
+                            {% endfor %}
+                        {% endif %}
+                        
+                    </ul>
+                </div>
+                <hr>
+                {% endfor %}
+            </div>
+        </section>
+    </div> {% endcomment %}
+
+    
+</body>
+</html>
