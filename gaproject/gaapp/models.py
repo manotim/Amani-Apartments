@@ -27,6 +27,7 @@ class House(models.Model):
     house_type = models.CharField(max_length=100, null=True, blank=True)
     is_available = models.BooleanField(default=True)
     apartment = models.ForeignKey(Apartment, on_delete=models.CASCADE, related_name='houses')
+    image = models.ImageField(upload_to='house_images/', null=True, blank=True)
 
     def __str__(self):
         return self.name

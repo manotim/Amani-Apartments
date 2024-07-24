@@ -1,8 +1,7 @@
 {% extends "gaapp/base.html" %}
 {% load static %}
 {% block innercontent %}
-
-<section id="content" style="background-color: green;">
+<section id="content">
     <div id="header">
         <div class="header-nav">
             <div class="menu-button"><!--<i class="fa fa-navicon"></i>--></div>
@@ -47,28 +46,21 @@
             <h1>Dashboard</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
-        {% for house in houses %}
-            <div class="widget-box sample-widget">
-                <div style="position: relative;">
-                    {% if house.image %}
-                        <img src="{{ house.image.url }}" alt="{{ house.name }}">
-                    {% else %}
-                        <img src="{% static 'images/default_image.jpg' %}" alt="Default Image"> 
-                    {% endif %}
-                    <div class="status-message {% if house.is_available %}available{% else %}not-available{% endif %}">
-                        {% if house.is_available %}
-                            Available
-                        {% else %}
-                            Not available
-                        {% endif %}
-                    </div>
+        <div class="widget-box sample-widget">
+            <div class="content">
+                <h1>Items for {{ house.name }}</h1>
+                <p>Type: {{ house.house_type }}</p>
+                <div class="items-list">
+                    {% for item in items %}
+                        <div class="item">
+                            <h4>{{ item.name }}</h4>
+                            <p>Quantity: {{ item.quantity }}</p>
+                        </div>
+                    {% endfor %}
                 </div>
-                <h3>{{ house.name }}</h3>
-                <p class="tag">{{ house.house_type }}</p>
-                <a href="{% url 'house_items' house.id %}" class="btn">See House Items</a> 
             </div>
-        {% endfor %}
+        </div>
+        
     </div>
-   
 </section>
 {% endblock innercontent %}
