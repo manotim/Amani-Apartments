@@ -6,7 +6,6 @@ User = get_user_model()
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
-    # role = forms.ChoiceField(choices=User.ROLE_CHOICES)
 
     class Meta:
         model = User
