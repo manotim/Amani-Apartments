@@ -8,17 +8,77 @@
     <title>Gift Apartments</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
-        nav {
-            display: flex;
-            text-align: center;
-            justify-content: space-between;
-            color: azure;
-        }
-        .nav {
-            background-color: #C1BCC2;
-            width: 100%;
-            height: 45px;
-        }
+      header {
+        display: grid;
+        grid-template-columns: 2fr 3fr 2fr;
+        align-items: center;
+        background: red;
+        padding: 0 20px;
+        grid-gap: 10px;
+    }
+
+    .logo h1 {
+      margin: 0;
+      font-weight: bold;
+      color: white;
+  }
+
+  .search-bar input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.right-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+.right-header select, .right-header button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: white;
+  color: red;
+  cursor: pointer;
+}
+
+.right-header button:hover {
+  background: darkred;
+  color: white;
+}
+      nav {
+        background: black;
+        color: rgb(221, 158, 23);
+    }
+    
+    nav ul {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav ul li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  nav ul li a {
+      color: rgb(221, 158, 23);
+      text-decoration: none;
+      padding: 15px 20px;
+  }
+  
+  nav ul li a:hover {
+      background: white;
+      color: black;
+  }
 
         .rooms-container {
       display: grid;
@@ -35,26 +95,9 @@
       height: 16rem;
     }
 
-        .nav > ul {
-            display: flex;
-            /* margin: 24px; */
-        }
+        
 
-        .nav > ul > li {
-            list-style: none;
-            margin: 32px;
-        }
-
-        .nav > ul > a {
-            margin: 32px;
-        }
-
-        .nav > ul > li a {
-            color: #2217bb;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 18px;
-        }
+       
 
         .home-logo > img {
             width: 80px;
@@ -165,59 +208,37 @@
     </style>
 </head>
 <body>
-    <!-- <nav>
-        <div class="home-logo">
-            <img src="{% static 'images/GA_Logo-new.png' %}" alt="Logo">
+  <div class="container">
+    <header>
+        <div class="logo">
+            <h1>Gift Apartments</h1>
         </div>
-        <div class="nav">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Find House</a></li>
-                <a href="#"><button>Login</button></a>
-                <a href="#"><button>Register</button></a>
-            </ul>
-            
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
         </div>
-    </nav> -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Amani Apartments</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
-          </ul>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success btn-info" type="button" onclick="location.href='{% url 'login' %}'">Login</button>
-            <button class="btn btn-outline-success btn-info" type="button" onclick="location.href='{% url 'register' %}'">Register</button>
-          </form>
+        <div class="right-header">
+            <select>
+                <option value="en">EN</option>
+                <option value="fr">FR</option>
+                <option value="es">ES</option>
+            </select>
+            <button>Login</button>
+            <button>Register</button>
         </div>
-      </div>
-    </nav>
+    </header>
+
+    <nav>
+      <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+      </ul>
+  </nav>
     
 <!-- Hero 3 - Bootstrap Brain Component -->
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
