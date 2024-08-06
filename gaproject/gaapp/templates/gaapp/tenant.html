@@ -45,7 +45,7 @@
     <div class="content">
         <div class="content-header">
             <h1>Dashboard</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            
         </div>
         {% for house in houses %}
             <div class="widget-box sample-widget">
@@ -65,7 +65,11 @@
                 </div>
                 <h3>{{ house.name }}</h3>
                 <p class="tag">{{ house.house_type }}</p>
-                <a href="{% url 'house_items' house.id %}" class="btn">See House Items</a> 
+                {% if house.is_available %}
+                    <a href="{% url 'house_items' house.id %}" class="house-btn">See House Items</a>
+                {% else %}
+                    <a href="#" class="house-btn disabled">See House Items</a>
+                {% endif %} 
             </div>
         {% endfor %}
     </div>
