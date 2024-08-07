@@ -228,18 +228,18 @@ div.user-image {
     width: 210px;
     height: 100%;
     float: left;
-    background: #2a2d33;
+    background: #205ed8;
 }
 
 #sidebar.user-sidebar {
-    background: #397ac5;
+    background: #2c75c9;
 }
 
 #sidebar-nav {
     width: 106%;
-    height: calc(100% - 95PX);
+    height: 100%;
     padding: 0;
-    background: #2a2d33;
+    background: #415cd4b0;
     border-right: 1px solid #e0e0e0;
     overflow-y: scroll;
 }

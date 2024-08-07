@@ -23,13 +23,19 @@ def landlord_view(request):
 @role_required('tenant')
 def tenant_view(request):
     # Tenant-specific view logic
-    houses = House.objects.all()
     context = {
-        'houses': houses,
-        'page_title': 'Tenant Dashboard',
         'tenant_username': request.user.username,
     }
     return render(request, 'gaapp/tenant.html', context)
+
+@role_required('tenant')
+def house_list(request):
+    houses = House.objects.all()
+    context = {
+        'houses': houses,
+        'page_title': 'All Houses',
+    }
+    return render(request, 'gaapp/house_list.html', context)
 
 
 @role_required('tenant')

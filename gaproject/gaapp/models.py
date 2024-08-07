@@ -11,8 +11,6 @@ class User(AbstractUser):
     groups = models.ManyToManyField(Group, related_name='gaapp_user_set', blank=True)
     user_permissions = models.ManyToManyField(Permission, related_name='gaapp_user_permissions_set', blank=True)
 
-
-# Apartment model
 class Apartment(models.Model):
     name = models.CharField(max_length=100)
     address = models.TextField()
@@ -20,8 +18,7 @@ class Apartment(models.Model):
 
     def __str__(self):
         return self.name
-    
-# House model
+
 class House(models.Model):
     name = models.CharField(max_length=100)
     house_type = models.CharField(max_length=100, null=True, blank=True)
@@ -31,8 +28,7 @@ class House(models.Model):
 
     def __str__(self):
         return self.name
-    
-# Item model
+
 class Item(models.Model):
     name = models.CharField(max_length=100)
     quantity = models.PositiveIntegerField()
@@ -40,17 +36,15 @@ class Item(models.Model):
     
     def __str__(self) -> str:
         return f'{self.quantity} {self.name} in {self.house.name}'
-    
-# Tenant model
+
 class Tenant(models.Model):
     move_in_date = models.DateField()
-    house = models.ForeignKey(House, on_delete=models.SET_NULL, null=True, blank=True)
+    house = models.ForeignKey(House, on_delete=models.CASCADE, related_name='tenants')
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='tenant_profile')
 
     def __str__(self):
         return self.user.username
-    
-# Payment model
+
 class Payment(models.Model):
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     date_paid = models.DateField()
@@ -59,9 +53,8 @@ class Payment(models.Model):
     house = models.ForeignKey(House, on_delete=models.CASCADE, related_name='payments')
 
     def __str__(self):
-        return f'{self.amount} - {self.date} - {"Paid" if self.is_paid else "Unpaid"}'
-    
-# Signals to update house availability
+        return f'{self.amount} - {self.date_paid} - {"Paid" if self.is_paid else "Unpaid"}'
+
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 

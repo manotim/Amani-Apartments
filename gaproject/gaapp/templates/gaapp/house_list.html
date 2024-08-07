@@ -1,8 +1,7 @@
 {% extends "gaapp/base.html" %}
 {% load static %}
 {% block innercontent %}
-
-<section id="content" style="background-color: green;">
+<section id="content">
     <div id="header">
         <div class="header-nav">
             <div class="menu-button"><!--<i class="fa fa-navicon"></i>--></div>
@@ -45,11 +44,34 @@
     <div class="content">
         <div class="content-header">
             <h1>Dashboard</h1>
-            
         </div>
-        <h4>Default home content for tenant goes here</h4>
-        <h6>Analysis, reports and any other tenant info goes  here</h6>
+        
+        {% for house in houses %}
+            <div class="widget-box sample-widget">
+                <div style="position: relative;">
+                    {% if house.image %}
+                        <img src="{{ house.image.url }}" alt="{{ house.name }}">
+                    {% else %}
+                        <img src="{% static 'images/default_image.jpg' %}" alt="Default Image"> 
+                    {% endif %}
+                    <div class="status-message {% if house.is_available %}available{% else %}not-available{% endif %}">
+                        {% if house.is_available %}
+                            Available
+                        {% else %}
+                            Not available
+                        {% endif %}
+                    </div>
+                </div>
+                <h3>{{ house.name }}</h3>
+                <p class="tag">{{ house.house_type }}</p>
+                {% if house.is_available %}
+                    <a href="{% url 'house_items' house.id %}" class="house-btn">See House Items</a>
+                {% else %}
+                    <a href="#" class="house-btn disabled">See House Items</a>
+                {% endif %} 
+            </div>
+        {% endfor %}
+
     </div>
-   
 </section>
 {% endblock innercontent %}
