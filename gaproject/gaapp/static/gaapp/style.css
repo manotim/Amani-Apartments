@@ -355,12 +355,12 @@ div.user-image {
     border: 1px solid #ddd;
     padding: 20px;
     margin: 20px;
-    width: 300px; /* Adjust width as needed */
+    width: 400px; /* Adjust width as needed */
     box-sizing: border-box;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     overflow: hidden;
-    background: #fff;
+    background: #9e4f4f;
     transition: transform 0.3s ease;
 }
 
@@ -607,72 +607,34 @@ button:hover {
 }
 
 /* FOR HOME PAGE */
-.container {
-    display: grid;
-    width: 100%;
-    position: relative;
-    margin: 5px;
-    /* gap: 5px; */
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: 70px 50px;
-    grid-template-areas: "header header header header header header header header"
-                         "nav nav nav nav nav nav nav nav";
-}
+/* for header */
 
-header {
-    grid-area: header;
-}
-
-nav {
-    grid-area: nav;
-}
-
-header {
-    display: grid;
-    grid-template-columns: 2fr 3fr 2fr;
-    align-items: center;
-    background: red;
-    padding: 0;
-    grid-gap: 10px;
-}
 
 .logo h1 {
-  margin: 0;
-  font-weight: bold;
-  color: white;
+    margin: 0;
+    font-weight: bold;
+    color: white;
 }
 
 .search-bar input {
-width: 100%;
-padding: 10px;
-border: none;
-border-radius: 5px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
 }
 
 .right-header {
-display: flex;
-justify-content: flex-end;
-align-items: center;
-gap: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
 }
 
-.right-header select, .right-header button {
-padding: 10px;
-border: none;
-border-radius: 5px;
-background: white;
-color: red;
-cursor: pointer;
-}
 
-.right-header button:hover {
-background: darkred;
-color: white;
-}
-  nav {
-    background: black;
-    color: rgb(221, 158, 23);
-}
+
+/* for nav */
+
+
 
 nav ul {
     display: grid;
@@ -683,23 +645,19 @@ nav ul {
 }
 
 nav ul li {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-nav ul li a {
-  color: rgb(221, 158, 23);
-  text-decoration: none;
-  padding: 15px 20px;
-}
+
 
 nav ul li a:hover {
-  background: white;
-  color: black;
+    background: white;
+    color: black;
 }
 
-    .rooms-container {
+.rooms-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0; 
@@ -714,11 +672,7 @@ nav ul li a:hover {
   height: 16rem;
 }
 
-    
-
-   
-
-    .home-logo > img {
+.home-logo > img {
         width: 80px;
         height: 80px;
     }
@@ -823,4 +777,4 @@ nav ul li a:hover {
   
   .c {
       grid-column: span 2;
-  } 
+  }  

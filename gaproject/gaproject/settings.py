@@ -27,7 +27,9 @@ SECRET_KEY = 'django-insecure-o7!*k6k2!084%!9av%oavnf)khc+ux0scys&r@e7fi1cucl27(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['gifthomeapartments.co.ke', 'www.gifthomeapartments.co.ke', '127.0.0.1', 'localhost']
+
 
 
 # Application definition
@@ -123,12 +125,17 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = 'static/'
+# Directory where collected static files will be placed
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Additional directories where Django will look for static files
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    os.path.join(BASE_DIR, 'static'),
 ]
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
