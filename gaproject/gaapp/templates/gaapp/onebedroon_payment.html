@@ -1,0 +1,21 @@
+{% extends "gaapp/base.html" %}
+{% load static %}
+{% block innercontent %}
+<section id="content">
+    <div class="content">
+        <div class="widget-box sample-widget" style="display: flex; justify-content: center; margin-top: 20px;">
+            
+            <!-- Card: One Bedroom Payment Plan -->
+            <div class="card" style="border: 1px solid #ccc; padding: 20px; width: 100%; max-width: 400px; text-align: center;">
+                <h3 class="card-title">One Bedroom</h3>
+                <img src="{% static 'images/one_bedroom.jpg' %}" alt="One Bedroom" style="width: 100%; height: auto; margin-bottom: 15px;">
+                <p class="card-price" style="font-size: 1.2em; font-weight: bold; margin-bottom: 15px;">Price: $500/month</p>
+                <a href="{% url 'payment_processing' %}">
+                    <button style="width: 100%; padding: 10px; background-color: #007bff; color: white; border: none; cursor: pointer;">Pay Now</button>
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</section>
+{% endblock innercontent %}

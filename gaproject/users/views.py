@@ -10,13 +10,15 @@ def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            messages.success(request, f'Account created for {username}!')
+            user = form.save(commit=False)  # Create the user instance but don't save it yet
+            user.role = 'tenant'  # Set the default role to 'tenant'
+            user.save()  # Save the user instance with the assigned role
+            messages.success(request, f'Account created for {user.username}!')
             return redirect('login')
     else:
         form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
+
 
 def custom_login(request):
     if request.method == 'POST':

@@ -43,3 +43,13 @@ def house_items(request, house_id):
     house = get_object_or_404(House, id=house_id)
     items = house.items.all()
     return render(request, 'gaapp/house_items.html', {'house': house, 'items': items})
+
+@role_required('tenant')
+def onebedroom_payment(request):
+    
+    return render(request, 'gaapp/onebedroom_payment.html')
+
+@role_required('tenant')
+def bedsitter_payment(request):
+    
+    return render(request, 'gaapp/bedsitter_payment.html')

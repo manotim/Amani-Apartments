@@ -30,7 +30,6 @@
                             <img
                                 src="{% static 'images/profile-avatar.png' %}"
                                 alt="profile-img"
-                                alt="profile image"
                             />
                             <div class="nav-profile-name">
                                 {{ tenant_username }}<i class="fa fa-caret-down"></i>
@@ -66,12 +65,23 @@
                 <p class="tag">{{ house.house_type }}</p>
                 {% if house.is_available %}
                     <a href="{% url 'house_items' house.id %}" class="house-btn">See House Items</a>
+                    {% if house.house_type == 'bedsitter' %}
+                        <a href="{% url 'bedsitter_payment' %}">
+                            <button>Pay Now</button>
+                        </a>
+                    {% elif house.house_type == 'one bedroom' %}
+                        <a href="{% url 'onebedroom_payment' %}">
+                            <button>Pay Now</button>
+                        </a>
+                    {% endif %}
                 {% else %}
                     <a href="#" class="house-btn disabled">See House Items</a>
+                    <a href="#">
+                        <button>Future Booking</button>
+                    </a>
                 {% endif %} 
             </div>
         {% endfor %}
-
     </div>
 </section>
 {% endblock innercontent %}

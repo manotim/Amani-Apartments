@@ -355,12 +355,12 @@ div.user-image {
     border: 1px solid #ddd;
     padding: 20px;
     margin: 20px;
-    width: 400px; /* Adjust width as needed */
+    width: 700px; /* Adjust width as needed */
     box-sizing: border-box;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     overflow: hidden;
-    background: #9e4f4f;
+    background: #11c238;
     transition: transform 0.3s ease;
 }
 
