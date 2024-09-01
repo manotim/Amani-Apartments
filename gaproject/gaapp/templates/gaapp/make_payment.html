@@ -10,7 +10,17 @@
                 <h3 class="card-title">Bedsitter</h3>
                 <img src="{% static 'images/bedsitter.jpg' %}" alt="Bedsitter" style="width: 100%; height: auto; margin-bottom: 15px;">
                 <p class="card-price" style="font-size: 1.2em; font-weight: bold; margin-bottom: 15px;">Price: $300/month</p>
-                <a href="#">
+                <a href="{% url 'bedsitter_payment' %}">
+                    <button style="width: 100%; padding: 10px; background-color: #007bff; color: white; border: none; cursor: pointer;">Pay Now</button>
+                </a>
+            </div>
+
+            <!-- Card: Bedsitter Payment Plan -->
+            <div class="card" style="border: 1px solid #ccc; padding: 20px; width: 100%; max-width: 400px; text-align: center;">
+                <h3 class="card-title">1 Bedroom</h3>
+                <img src="{% static 'images/bedsitter.jpg' %}" alt="Bedsitter" style="width: 100%; height: auto; margin-bottom: 15px;">
+                <p class="card-price" style="font-size: 1.2em; font-weight: bold; margin-bottom: 15px;">Price: $700/month</p>
+                <a href="{% url 'onebedroom_payment' %}">
                     <button style="width: 100%; padding: 10px; background-color: #007bff; color: white; border: none; cursor: pointer;">Pay Now</button>
                 </a>
             </div>

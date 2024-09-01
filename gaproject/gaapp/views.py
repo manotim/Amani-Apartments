@@ -45,6 +45,11 @@ def house_items(request, house_id):
     return render(request, 'gaapp/house_items.html', {'house': house, 'items': items})
 
 @role_required('tenant')
+def make_payment(request):
+    
+    return render(request, 'gaapp/make_payment.html')
+
+@role_required('tenant')
 def onebedroom_payment(request):
     
     return render(request, 'gaapp/onebedroom_payment.html')

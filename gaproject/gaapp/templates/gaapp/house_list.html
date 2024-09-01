@@ -63,17 +63,12 @@
                 </div>
                 <h3>{{ house.name }}</h3>
                 <p class="tag">{{ house.house_type }}</p>
+                
                 {% if house.is_available %}
                     <a href="{% url 'house_items' house.id %}" class="house-btn">See House Items</a>
-                    {% if house.house_type == 'bedsitter' %}
-                        <a href="{% url 'bedsitter_payment' %}">
-                            <button>Pay Now</button>
-                        </a>
-                    {% elif house.house_type == 'one bedroom' %}
-                        <a href="{% url 'onebedroom_payment' %}">
-                            <button>Pay Now</button>
-                        </a>
-                    {% endif %}
+                    <a href="{% url 'make_payment' %}">
+                        <button>Pay Now</button>
+                    </a>
                 {% else %}
                     <a href="#" class="house-btn disabled">See House Items</a>
                     <a href="#">
