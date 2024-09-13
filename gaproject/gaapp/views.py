@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Apartment, House, Item, Tenant, Payment
+from .models import Apartment, House, Item, Tenant, Payment, User
 from .decorators import role_required
+from django.http import HttpResponseForbidden
 
 # Create your views here.
 def home(request):
@@ -58,3 +59,13 @@ def onebedroom_payment(request):
 def bedsitter_payment(request):
     
     return render(request, 'gaapp/bedsitter_payment.html')
+
+@role_required('landlord')
+def all_tenants(request):
+    if request.user.role != 'landlord':
+        return HttpResponseForbidden("Only Accessible by the Landlord")
+    users = User.objects.all()
+    context = {
+        'users': users,
+    }
+    return render(request, 'gaapp/all_tenants.html', context)

@@ -1,0 +1,79 @@
+{% extends "gaapp/base.html" %}
+{% load static %}
+{% block innercontent %}
+<section id="content">
+    <div id="header">
+        <div class="header-nav">
+            <div class="menu-button"><!--<i class="fa fa-navicon"></i>--></div>
+            <div class="nav">
+                <ul>
+                    <li class="nav-settings">
+                        <div class="font-icon"><i class="fa fa-tasks"></i></div>
+                    </li>
+                    <li class="nav-mail">
+                        <div class="font-icon">
+                            <i class="fa-regular fa-envelope"></i>
+                        </div>
+                    </li>
+                    <li class="nav-calendar">
+                        <div class="font-icon">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                    </li>
+                    <li class="nav-chat">
+                        <div class="font-icon">
+                            <i class="fa-regular fa-comment"></i>
+                        </div>
+                    </li>
+                    <li class="nav-profile">
+                        <div class="nav-profile-image">
+                            <img
+                                src="{% static 'images/profile-avatar.png' %}"
+                                alt="profile-img"
+                            />
+                            <div class="nav-profile-name">
+                                {{ tenant_username }}<i class="fa fa-caret-down"></i>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="content-header">
+            <h1>Dashboard</h1>
+            <h2>All Tenants Here</h2>
+        </div>
+        
+        <table style="border-collapse: collapse; width: 90%;">
+            <thead>
+                <tr>
+                    <th style="border: 1px solid black; padding: 8px;">First Name</th>
+                    <th style="border: 1px solid black; padding: 8px;">Last Name</th>
+                    <th style="border: 1px solid black; padding: 8px;">House Number</th>
+                    <th style="border: 1px solid black; padding: 8px;">House Type</th>
+                    <th style="border: 1px solid black; padding: 8px;">Date Entered</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    {% if user.role == 'tenant' %}
+                        <tr>
+                            <td style="border: 1px solid black; padding: 8px;">{{ user.first_name }}</td>
+                            <td style="border: 1px solid black; padding: 8px;">{{ user.last_name }}</td>
+                            <td style="border: 1px solid black; padding: 8px;">House Number Placeholder</td>
+                            <td style="border: 1px solid black; padding: 8px;">House Type Placeholder</td>
+                            <td style="border: 1px solid black; padding: 8px;">Date Entered Placeholder</td>
+                        </tr>
+                    {% endif %}
+                {% empty %}
+                    <tr>
+                        <td colspan="5" style="border: 1px solid black; padding: 8px; text-align: center;">No available tenants.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock innercontent %}
